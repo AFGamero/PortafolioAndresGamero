@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Andrés Gamero — Backend Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Outfit:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="build/css/app.css" />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+      <div class="nav__logo">
+        <span class="nav__logo-bracket">&lt;</span>AG<span
+          class="nav__logo-bracket"
+          >/&gt;</span
+        >
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#sobre-mi" class="nav__link">Sobre mí</a></li>
+        <li><a href="#tecnologias" class="nav__link">Tecnologías</a></li>
+        <li><a href="#proyectos" class="nav__link">Proyectos</a></li>
+        <li>
+          <a href="#contacto" class="nav__link nav__link--cta">Contacto</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="hero__noise"></div>
+      <div class="hero__grid-lines"></div>
+      <div class="hero__content">
+        <p class="hero__eyebrow">
+          <span class="hero__dot"></span>
+          Disponible para proyectos
+        </p>
+        <h1 class="hero__name">Andrés<br /><em>Gamero</em></h1>
+        <div class="hero__role">
+          <span class="hero__role-line"></span>
+          <span>Backend Developer</span>
+          <span class="hero__role-line"></span>
+        </div>
+        <p class="hero__description">
+          Construyo sistemas escalables y APIs robustas que impulsan productos
+          digitales. Backend con visión de producto y capacidad de llevar ideas
+          al frontend.
+        </p>
+        <div class="hero__actions">
+          <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
+          <a href="#contacto" class="btn btn--ghost">Contáctame</a>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="hero__terminal">
+          <div class="hero__terminal-bar">
+            <span class="hero__terminal-dot hero__terminal-dot--red"></span>
+            <span class="hero__terminal-dot hero__terminal-dot--yellow"></span>
+            <span class="hero__terminal-dot hero__terminal-dot--green"></span>
+            <span class="hero__terminal-file">main.py</span>
+          </div>
+          <div class="hero__terminal-body">
+            <pre
+              class="hero__code"
+            ><span class="c-comment"># Sistema de autenticación JWT</span>
+<span class="c-keyword">from</span> fastapi <span class="c-keyword">import</span> FastAPI, Depends
+<span class="c-keyword">from</span> app.auth <span class="c-keyword">import</span> verify_token
+
+app = <span class="c-func">FastAPI</span>()
+
+<span class="c-decorator">@app.get</span>(<span class="c-string">"/api/users/me"</span>)
+<span class="c-keyword">async def</span> <span class="c-func">get_user</span>(
+    token: str = <span class="c-func">Depends</span>(verify_token)
+):
+    <span class="c-keyword">return</span> {
+        <span class="c-string">"user"</span>: token.sub,
+        <span class="c-string">"status"</span>: <span class="c-string">"active"</span>
+    }<span class="hero__cursor">▋</span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="hero__scroll-hint">
+        <span>scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section class="sobre-mi" id="sobre-mi">
+      <div class="container">
+        <div class="sobre-mi__layout">
+          <div class="sobre-mi__tag-col">
+            <p class="section-tag">01 — Sobre mí</p>
+            <div class="sobre-mi__stats">
+              <div class="stat">
+                <span class="stat__number">1</span>
+                <span class="stat__label">Año de experiencia</span>
+              </div>
+              <div class="stat">
+                <span class="stat__number">7+</span>
+                <span class="stat__label">Proyectos entregados</span>
+              </div>
+              <div class="stat">
+                <span class="stat__number">8</span>
+                <span class="stat__label">Tecnologías dominadas</span>
+              </div>
+            </div>
+          </div>
+          <div class="sobre-mi__content">
+            <h2 class="sobre-mi__heading">
+              Desarrollo el motor que hace funcionar los productos digitales.
+            </h2>
+            <p class="sobre-mi__text">
+              Soy desarrollador backend especializado en diseñar arquitecturas
+              limpias, APIs RESTful y sistemas de alta disponibilidad. Me
+              apasiona escribir código que escale: desde microservicios en
+              Spring Boot hasta APIs asíncronas con Node.js o Django REST
+              Framework.
+            </p>
+            <p class="sobre-mi__text">
+              Mi enfoque en el backend no me aleja del frontend: entiendo cómo
+              los datos fluyen hacia la interfaz, y uso React y Next.js cuando
+              el proyecto lo requiere. Creo en el software bien construido:
+              testeable, documentado y mantenible.
+            </p>
+            <div class="sobre-mi__pillars">
+              <div class="pillar">
+                <span class="pillar__icon">⚙</span>
+                <span class="pillar__text">Arquitectura limpia</span>
+              </div>
+              <div class="pillar">
+                <span class="pillar__icon">⚡</span>
+                <span class="pillar__text">APIs de alto rendimiento</span>
+              </div>
+              <div class="pillar">
+                <span class="pillar__icon">🛡</span>
+                <span class="pillar__text">Seguridad & autenticación</span>
+              </div>
+              <div class="pillar">
+                <span class="pillar__icon">🗄</span>
+                <span class="pillar__text">Bases de datos SQL & NoSQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECNOLOGÍAS -->
+    <section class="tecnologias" id="tecnologias">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-tag">02 — Stack</p>
+          <h2 class="section-heading">Tecnologías</h2>
+        </div>
+
+        <!-- Backend -->
+        <div class="tecnologias__category">
+          <p class="tecnologias__category-label">Backend</p>
+          <div class="tecnologias__grid tecnologias__grid--backend">
+            <div class="tech-card tech-card--featured">
+              <div class="tech-card__icon">
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    width="48"
+                    height="48"
+                    rx="10"
+                    fill="#6DB33F"
+                    fill-opacity="0.15"
+                  />
+                  <path
+                    d="M24 8C15.163 8 8 15.163 8 24s7.163 16 16 16 16-7.163 16-16S32.837 8 24 8zm0 4c6.617 0 12 5.383 12 12s-5.383 12-12 12S12 30.617 12 24 17.383 12 24 12z"
+                    fill="#6DB33F"
+                  />
+                  <path d="M20 20h2v8h-2v-8zm6 0h2v8h-2v-8z" fill="#6DB33F" />
+                </svg>
+              </div>
+              <h3 class="tech-card__name">Spring Boot</h3>
+              <p class="tech-card__desc">
+                Microservicios, REST APIs, seguridad con Spring Security y JWT.
+              </p>
+              <div class="tech-card__level">
+                <div class="tech-card__level-bar" style="--level: 90%"></div>
+              </div>
+            </div>
+
+            <div class="tech-card tech-card--featured">
+              <div class="tech-card__icon">
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    width="48"
+                    height="48"
+                    rx="10"
+                    fill="#092E20"
+                    fill-opacity="0.6"
+                  />
+                  <path
+                    d="M24 10C16.268 10 10 16.268 10 24s6.268 14 14 14 14-6.268 14-14-6.268-14-14-14z"
+                    fill="#44B78B"
+                  />
+                  <path
+                    d="M24 16a8 8 0 100 16 8 8 0 000-16zm0 3a5 5 0 110 10 5 5 0 010-10z"
+                    fill="#fff"
+                  />
+                </svg>
+              </div>
+              <h3 class="tech-card__name">Django</h3>
+              <p class="tech-card__desc">
+                Django REST Framework, ORM avanzado, tareas asíncronas con
+                Celery.
+              </p>
+              <div class="tech-card__level">
+                <div class="tech-card__level-bar" style="--level: 85%"></div>
+              </div>
+            </div>
+
+            <div class="tech-card tech-card--featured">
+              <div class="tech-card__icon">
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    width="48"
+                    height="48"
+                    rx="10"
+                    fill="#68A063"
+                    fill-opacity="0.15"
+                  />
+                  <path
+                    d="M24 8C15.163 8 8 15.163 8 24s7.163 16 16 16 16-7.163 16-16S32.837 8 24 8z"
+                    fill="#68A063"
+                  />
+                  <path d="M19 18l10 6-10 6V18z" fill="#fff" />
+                </svg>
+              </div>
+              <h3 class="tech-card__name">Node.js</h3>
+              <p class="tech-card__desc">
+                APIs asíncronas, WebSockets, Express y NestJS para arquitecturas
+                escalables.
+              </p>
+              <div class="tech-card__level">
+                <div class="tech-card__level-bar" style="--level: 88%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frontend -->
+        <div class="tecnologias__category">
+          <p class="tecnologias__category-label">Frontend</p>
+          <div class="tecnologias__grid tecnologias__grid--frontend">
+            <div class="tech-card">
+              <div class="tech-card__icon">
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    width="48"
+                    height="48"
+                    rx="10"
+                    fill="#61DAFB"
+                    fill-opacity="0.12"
+                  />
+                  <circle cx="24" cy="24" r="4" fill="#61DAFB" />
+                  <ellipse
+                    cx="24"
+                    cy="24"
+                    rx="14"
+                    ry="5.5"
+                    stroke="#61DAFB"
+                    stroke-width="1.8"
+                  />
+                  <ellipse
+                    cx="24"
+                    cy="24"
+                    rx="14"
+                    ry="5.5"
+                    stroke="#61DAFB"
+                    stroke-width="1.8"
+                    transform="rotate(60 24 24)"
+                  />
+                  <ellipse
+                    cx="24"
+                    cy="24"
+                    rx="14"
+                    ry="5.5"
+                    stroke="#61DAFB"
+                    stroke-width="1.8"
+                    transform="rotate(120 24 24)"
+                  />
+                </svg>
+              </div>
+              <h3 class="tech-card__name">React</h3>
+              <p class="tech-card__desc">
+                SPAs, hooks, context y consumo de APIs propias.
+              </p>
+              <div class="tech-card__level">
+                <div class="tech-card__level-bar" style="--level: 78%"></div>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="tech-card__icon">
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    width="48"
+                    height="48"
+                    rx="10"
+                    fill="#fff"
+                    fill-opacity="0.08"
+                  />
+                  <path
+                    d="M10 38l7-20h4l-7 20h-4zm8-8l4-12h4l-4 12h-4zm8 8l7-20h4l-7 20h-4z"
+                    fill="#fff"
+                  />
+                </svg>
+              </div>
+              <h3 class="tech-card__name">Next.js</h3>
+              <p class="tech-card__desc">
+                SSR, SSG, App Router e integración full-stack.
+              </p>
+              <div class="tech-card__level">
+                <div class="tech-card__level-bar" style="--level: 72%"></div>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="tech-card__icon">
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    width="48"
+                    height="48"
+                    rx="10"
+                    fill="#CC6699"
+                    fill-opacity="0.15"
+                  />
+                  <path
+                    d="M14 14h6v6h-6zM22 14h12v6H22zM14 22h20v6H14zM14 30h6v6h-6zM22 30h12v6H22z"
+                    fill="#CC6699"
+                  />
+                </svg>
+              </div>
+              <h3 class="tech-card__name">HTML / CSS / Sass</h3>
+              <p class="tech-card__desc">
+                Maquetación semántica, diseño responsive y sistemas de estilos
+                escalables.
+              </p>
+              <div class="tech-card__level">
+                <div class="tech-card__level-bar" style="--level: 82%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bases de datos — SECCIÓN RESTAURADA COMPLETA -->
+        <div class="tecnologias__category">
+          <p class="tecnologias__category-label">Bases de datos</p>
+          <div class="tecnologias__grid tecnologias__grid--db">
+            <div class="tech-card tech-card--db">
+              <div class="tech-card__icon">
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    width="48"
+                    height="48"
+                    rx="10"
+                    fill="#336791"
+                    fill-opacity="0.18"
+                  />
+                  <ellipse
+                    cx="24"
+                    cy="16"
+                    rx="12"
+                    ry="5"
+                    stroke="#336791"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M12 16v8c0 2.761 5.373 5 12 5s12-2.239 12-5v-8"
+                    stroke="#336791"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M12 24v8c0 2.761 5.373 5 12 5s12-2.239 12-5v-8"
+                    stroke="#336791"
+                    stroke-width="2"
+                  />
+                </svg>
+              </div>
+              <h3 class="tech-card__name">PostgreSQL</h3>
+              <p class="tech-card__desc">
+                Modelado relacional, índices, stored procedures y optimización
+                de queries.
+              </p>
+              <div class="tech-card__level">
+                <div class="tech-card__level-bar" style="--level: 86%"></div>
+              </div>
+            </div>
+
+            <div class="tech-card tech-card--db">
+              <div class="tech-card__icon">
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    width="48"
+                    height="48"
+                    rx="10"
+                    fill="#4DB33D"
+                    fill-opacity="0.15"
+                  />
+                  <path
+                    d="M24 10c-7.732 0-14 2.686-14 6v16c0 3.314 6.268 6 14 6s14-2.686 14-6V16c0-3.314-6.268-6-14-6z"
+                    stroke="#4DB33D"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M10 22c0 3.314 6.268 6 14 6s14-2.686 14-6"
+                    stroke="#4DB33D"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M10 28c0 3.314 6.268 6 14 6s14-2.686 14-6"
+                    stroke="#4DB33D"
+                    stroke-width="2"
+                  />
+                </svg>
+              </div>
+              <h3 class="tech-card__name">MongoDB</h3>
+              <p class="tech-card__desc">
+                Documentos, aggregation pipeline, índices geoespaciales y Atlas.
+              </p>
+              <div class="tech-card__level">
+                <div class="tech-card__level-bar" style="--level: 80%"></div>
+              </div>
+            </div>
+
+            <div class="tech-card tech-card--db">
+              <div class="tech-card__icon">
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    width="48"
+                    height="48"
+                    rx="10"
+                    fill="#D82C20"
+                    fill-opacity="0.15"
+                  />
+                  <rect
+                    x="14"
+                    y="14"
+                    width="8"
+                    height="8"
+                    rx="2"
+                    fill="#D82C20"
+                  />
+                  <rect
+                    x="26"
+                    y="14"
+                    width="8"
+                    height="8"
+                    rx="2"
+                    fill="#D82C20"
+                    fill-opacity="0.5"
+                  />
+                  <rect
+                    x="14"
+                    y="26"
+                    width="8"
+                    height="8"
+                    rx="2"
+                    fill="#D82C20"
+                    fill-opacity="0.5"
+                  />
+                  <rect
+                    x="26"
+                    y="26"
+                    width="8"
+                    height="8"
+                    rx="2"
+                    fill="#D82C20"
+                    fill-opacity="0.3"
+                  />
+                </svg>
+              </div>
+              <h3 class="tech-card__name">Redis</h3>
+              <p class="tech-card__desc">
+                Caché distribuida, sesiones, colas de mensajes y pub/sub.
+              </p>
+              <div class="tech-card__level">
+                <div class="tech-card__level-bar" style="--level: 74%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section class="proyectos" id="proyectos">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-tag">03 — Trabajo</p>
+          <h2 class="section-heading">Proyectos destacados</h2>
+        </div>
+        <div class="proyectos__grid">
+          <article class="proyecto-card proyecto-card--featured">
+            <div class="proyecto-card__header">
+              <span class="proyecto-card__number">01</span>
+              <div class="proyecto-card__links">
+                <a href="#" class="proyecto-card__link" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="proyecto-card__link" aria-label="Demo">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                    />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="proyecto-card__title">API Gateway de Pagos</h3>
+            <p class="proyecto-card__desc">
+              Gateway de pagos con integración a Stripe y PayPal. Maneja
+              transacciones, webhooks, reintentos automáticos y auditoría
+              completa de eventos con trazabilidad distribuida.
+            </p>
+            <div class="proyecto-card__tags">
+              <span class="tag">Spring Boot</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Redis</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Kafka</span>
+            </div>
+          </article>
+
+          <article class="proyecto-card">
+            <div class="proyecto-card__header">
+              <span class="proyecto-card__number">02</span>
+              <div class="proyecto-card__links">
+                <a href="#" class="proyecto-card__link" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="proyecto-card__link" aria-label="Demo">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                    />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="proyecto-card__title">Sistema de Inventario SaaS</h3>
+            <p class="proyecto-card__desc">
+              Plataforma multi-tenant con Django REST Framework. Control de
+              stock en tiempo real, alertas automáticas, reportes CSV/PDF y
+              dashboard con Next.js.
+            </p>
+            <div class="proyecto-card__tags">
+              <span class="tag">Django</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Celery</span>
+            </div>
+          </article>
+
+          <article class="proyecto-card">
+            <div class="proyecto-card__header">
+              <span class="proyecto-card__number">03</span>
+              <div class="proyecto-card__links">
+                <a href="#" class="proyecto-card__link" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="proyecto-card__link" aria-label="Demo">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                    />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="proyecto-card__title">Chat en Tiempo Real</h3>
+            <p class="proyecto-card__desc">
+              Aplicación de mensajería con Node.js y Socket.io. Salas privadas,
+              historial persistente en MongoDB y notificaciones push con
+              Firebase.
+            </p>
+            <div class="proyecto-card__tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Socket.io</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">React</span>
+            </div>
+          </article>
+
+          <article class="proyecto-card">
+            <div class="proyecto-card__header">
+              <span class="proyecto-card__number">04</span>
+              <div class="proyecto-card__links">
+                <a href="#" class="proyecto-card__link" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="proyecto-card__link" aria-label="Demo">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                    />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="proyecto-card__title">Auth Service & SSO</h3>
+            <p class="proyecto-card__desc">
+              Servicio de autenticación centralizado con OAuth2, SSO y soporte
+              para múltiples providers. Implementado con Spring Security y
+              tokens JWT/JWKS.
+            </p>
+            <div class="proyecto-card__tags">
+              <span class="tag">Spring Boot</span>
+              <span class="tag">OAuth2</span>
+              <span class="tag">JWT</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+          </article>
+
+          <article class="proyecto-card">
+            <div class="proyecto-card__header">
+              <span class="proyecto-card__number">05</span>
+              <div class="proyecto-card__links">
+                <a href="#" class="proyecto-card__link" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="proyecto-card__link" aria-label="Demo">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                    />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="proyecto-card__title">Analytics Pipeline</h3>
+            <p class="proyecto-card__desc">
+              Pipeline de procesamiento de eventos con Node.js y Kafka. Ingesta
+              millones de eventos por día, los transforma y los almacena en
+              ClickHouse para análisis.
+            </p>
+            <div class="proyecto-card__tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Kafka</span>
+              <span class="tag">ClickHouse</span>
+              <span class="tag">Docker</span>
+            </div>
+          </article>
+
+          <article class="proyecto-card">
+            <div class="proyecto-card__header">
+              <span class="proyecto-card__number">06</span>
+              <div class="proyecto-card__links">
+                <a href="#" class="proyecto-card__link" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="proyecto-card__link" aria-label="Demo">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                    />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="proyecto-card__title">Blog Full-Stack</h3>
+            <p class="proyecto-card__desc">
+              Plataforma de contenido con Django + Next.js. Editor Markdown, SEO
+              optimizado, sistema de comentarios y panel de administración
+              personalizado.
+            </p>
+            <div class="proyecto-card__tags">
+              <span class="tag">Django</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">React</span>
+              <span class="tag">Sass</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contacto" id="contacto">
+      <div class="container">
+        <div class="contacto__inner">
+          <div class="contacto__content">
+            <p class="section-tag">04 — Contacto</p>
+            <h2 class="contacto__heading">
+              ¿Tienes un proyecto<br />en mente?
+            </h2>
+            <p class="contacto__text">
+              Estoy disponible para proyectos freelance, posiciones full-time y
+              colaboraciones open source. Escríbeme y hablemos.
+            </p>
+            <a href="mailto:Andresgamero28sa@gmail.com" class="contacto__email">
+              Andresgamero28sa@gmail.com
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+          <div class="contacto__links">
+            <a
+              href="https://github.com/afgamero"
+              target="_blank"
+              class="contact-link"
+            >
+              <div class="contact-link__icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                  />
+                </svg>
+              </div>
+              <div class="contact-link__info">
+                <span class="contact-link__label">GitHub</span>
+                <span class="contact-link__handle">@afgamero</span>
+              </div>
+              <svg
+                class="contact-link__arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/andr%C3%A9s-gamero-778989233/"
+              target="_blank"
+              class="contact-link"
+            >
+              <div class="contact-link__icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                  />
+                </svg>
+              </div>
+              <div class="contact-link__info">
+                <span class="contact-link__label">LinkedIn</span>
+                <span class="contact-link__handle">Andrés Gamero</span>
+              </div>
+              <svg
+                class="contact-link__arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+
+            <a href="mailto:Andresgamero28sa@gmail.com" class="contact-link">
+              <div class="contact-link__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div class="contact-link__info">
+                <span class="contact-link__label">Email</span>
+                <span class="contact-link__handle"
+                  >Andresgamero28sa@gmail.com</span
+                >
+              </div>
+              <svg
+                class="contact-link__arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <span class="footer__logo">
+            <span class="nav__logo-bracket">&lt;</span>AG<span
+              class="nav__logo-bracket"
+              >/&gt;</span
+            >
+          </span>
+          <p class="footer__copy">
+            © 2025 Andrés Gamero — Diseñado y construido con café y código.
+          </p>
+          <a href="#inicio" class="footer__back">↑ Inicio</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="build/js/bundle.min.js"></script>
+  </body>
+</html>

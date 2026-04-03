@@ -1,0 +1,276 @@
+// =============================================================================
+// LAYOUT — _hero.scss
+// Sección Hero principal con terminal animada y efectos de fondo
+// =============================================================================
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px $space-6 $space-16;
+    overflow: hidden;
+
+    @include tablet {
+        padding: 120px $space-8 $space-16;
+    }
+
+    @include desktop {
+        flex-direction: row;
+        align-items: center;
+        gap: $space-12;
+        padding: 0 $space-12;
+        max-width: 1320px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    // ---- Fondo con ruido / textura ----
+    &__noise {
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse 80% 60% at 20% 40%, rgba($color-accent, 0.07) 0%, transparent 60%),
+            radial-gradient(ellipse 60% 50% at 80% 70%, rgba(52, 211, 153, 0.04) 0%, transparent 60%);
+        pointer-events: none;
+    }
+
+    // ---- Líneas de grid decorativas ----
+    &__grid-lines {
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+        background-size: 60px 60px;
+        pointer-events: none;
+        mask-image: radial-gradient(ellipse at center, black 0%, transparent 75%);
+    }
+
+    // ---- Contenido izquierdo ----
+    &__content {
+        position: relative;
+        z-index: 2;
+        max-width: 580px;
+
+        @include desktop {
+            flex: 1;
+        }
+    }
+
+    // ---- Eyebrow "disponible" ----
+    &__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: $space-2;
+        font-family: $font-mono;
+        font-size: 0.75rem;
+        color: $color-green;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: $space-6;
+        opacity: 0;
+        animation: fadeUp 0.6s ease 0.1s forwards;
+    }
+
+    &__dot {
+        width: 7px;
+        height: 7px;
+        background: $color-green;
+        border-radius: 50%;
+        animation: pulse 2s ease infinite;
+    }
+
+    // ---- Nombre principal ----
+    &__name {
+        font-family: $font-display;
+        font-weight: 800;
+        font-size: clamp(3rem, 7vw, 6rem);
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+        color: $color-text;
+        margin-bottom: $space-6;
+        opacity: 0;
+        animation: fadeUp 0.7s ease 0.2s forwards;
+
+        em {
+            font-style: normal;
+            color: $color-accent;
+            display: block;
+        }
+    }
+
+    // ---- Role / título ----
+    &__role {
+        display: flex;
+        align-items: center;
+        gap: $space-3;
+        margin-bottom: $space-6;
+        font-family: $font-mono;
+        font-size: 0.85rem;
+        color: $color-text-muted;
+        letter-spacing: 0.05em;
+        opacity: 0;
+        animation: fadeUp 0.7s ease 0.3s forwards;
+
+        &-line {
+            flex: 1;
+            height: 1px;
+            background: $color-border;
+            max-width: 60px;
+        }
+    }
+
+    // ---- Descripción ----
+    &__description {
+        font-size: 1.05rem;
+        color: $color-text-muted;
+        line-height: 1.7;
+        max-width: 480px;
+        margin-bottom: $space-8;
+        opacity: 0;
+        animation: fadeUp 0.7s ease 0.4s forwards;
+    }
+
+    // ---- Botones de acción ----
+    &__actions {
+        display: flex;
+        gap: $space-4;
+        flex-wrap: wrap;
+        opacity: 0;
+        animation: fadeUp 0.7s ease 0.5s forwards;
+    }
+
+    // ---- Visual derecho: Terminal ----
+    &__visual {
+        position: relative;
+        z-index: 2;
+        opacity: 0;
+        animation: fadeUp 0.8s ease 0.6s forwards;
+
+        @include desktop {
+            flex: 1;
+            max-width: 520px;
+        }
+    }
+
+    &__terminal {
+        background: #0d0d1a;
+        border: 1px solid $color-border;
+        border-radius: $radius-md;
+        overflow: hidden;
+        box-shadow:
+            0 0 0 1px rgba(255,255,255,0.04),
+            0 24px 64px rgba(0,0,0,0.6),
+            0 0 80px rgba($color-accent, 0.06);
+    }
+
+    &__terminal-bar {
+        display: flex;
+        align-items: center;
+        gap: $space-2;
+        padding: $space-3 $space-4;
+        background: rgba(255,255,255,0.03);
+        border-bottom: 1px solid $color-border;
+    }
+
+    &__terminal-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+
+        &--red    { background: #ff5f57; }
+        &--yellow { background: #ffbd2e; }
+        &--green  { background: #28c840; }
+    }
+
+    &__terminal-file {
+        font-family: $font-mono;
+        font-size: 0.75rem;
+        color: $color-text-dim;
+        margin-left: $space-2;
+    }
+
+    &__terminal-body {
+        padding: $space-6;
+        overflow-x: auto;
+    }
+
+    &__code {
+        font-family: $font-mono;
+        font-size: 0.82rem;
+        line-height: 1.8;
+        color: $color-text;
+        white-space: pre;
+
+        .c-comment  { color: #5a5a7a; font-style: italic; }
+        .c-keyword  { color: #c792ea; }
+        .c-func     { color: #82aaff; }
+        .c-string   { color: #c3e88d; }
+        .c-decorator{ color: $color-accent; }
+    }
+
+    &__cursor {
+        animation: blink 1s step-end infinite;
+        color: $color-accent;
+    }
+
+    // ---- Scroll hint ----
+    &__scroll-hint {
+        position: absolute;
+        bottom: $space-8;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $space-2;
+        font-family: $font-mono;
+        font-size: 0.65rem;
+        color: $color-text-dim;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: fadeUp 1s ease 1s forwards;
+
+        @include desktop {
+            display: flex;
+        }
+    }
+
+    &__scroll-line {
+        width: 1px;
+        height: 40px;
+        background: linear-gradient($color-text-dim, transparent);
+        animation: scrollDown 1.8s ease-in-out infinite;
+    }
+}
+
+// ---- Keyframes ----
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba($color-green, 0.5); }
+    50%       { box-shadow: 0 0 0 5px rgba($color-green, 0); }
+}
+
+@keyframes scrollDown {
+    0%   { transform: scaleY(0); transform-origin: top; }
+    50%  { transform: scaleY(1); transform-origin: top; }
+    51%  { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+}

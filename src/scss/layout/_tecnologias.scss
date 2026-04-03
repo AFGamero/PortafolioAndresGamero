@@ -1,0 +1,155 @@
+// =============================================================================
+// LAYOUT — _tecnologias.scss
+// Sección de tecnologías dividida por categorías con grids responsive
+// =============================================================================
+
+.tecnologias {
+    padding: $space-24 0;
+    background: $color-bg-2;
+    position: relative;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, $color-border, transparent);
+    }
+    &::before { top: 0; }
+    &::after  { bottom: 0; }
+
+    // ---- Categoría ----
+    &__category {
+        margin-bottom: $space-12;
+
+        &:last-child { margin-bottom: 0; }
+    }
+
+    &__category-label {
+        font-family: $font-mono;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: $color-text-dim;
+        margin-bottom: $space-4;
+        padding-bottom: $space-3;
+        border-bottom: 1px solid $color-border;
+    }
+
+    // ---- Grid Backend (3 cards) ----
+    &__grid {
+        @include grid(1, $space-4);
+
+        @include tablet {
+            @include grid(2, $space-4);
+        }
+
+        &--backend {
+            @include desktop {
+                @include grid(3, $space-5);
+            }
+        }
+
+        // ---- Grid Frontend (3 cards) ----
+        &--frontend {
+            @include desktop {
+                @include grid(3, $space-5);
+            }
+        }
+
+        // ---- Grid Bases de datos (3 cards) ----
+        &--db {
+            @include desktop {
+                @include grid(3, $space-5);
+            }
+        }
+    }
+}
+
+// ---- Tech Card ----
+.tech-card {
+    background: $color-bg-card;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    padding: $space-6;
+    transition:
+        border-color $transition-normal,
+        transform    $transition-slow,
+        box-shadow   $transition-normal;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at top left, rgba($color-accent, 0.06), transparent 60%);
+        opacity: 0;
+        transition: opacity $transition-normal;
+    }
+
+    &:hover {
+        border-color: $color-border-hover;
+        transform: translateY(-4px);
+        box-shadow: $shadow-hover;
+
+        &::before {
+            opacity: 1;
+        }
+
+        .tech-card__level-bar::after {
+            animation: levelGrow 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+    }
+
+    // ---- Variante destacada ----
+    &--featured {
+        background: $color-bg-card-alt;
+    }
+
+    // ---- Icono ----
+    &__icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: $space-4;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    // ---- Nombre ----
+    &__name {
+        font-family: $font-display;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: $color-text;
+        margin-bottom: $space-2;
+        letter-spacing: -0.02em;
+    }
+
+    // ---- Descripción ----
+    &__desc {
+        font-size: 0.82rem;
+        color: $color-text-muted;
+        line-height: 1.6;
+        margin-bottom: $space-4;
+    }
+
+    // ---- Barra de nivel ----
+    &__level {
+        @include level-bar;
+    }
+
+    &__level-bar {
+        @include level-bar;
+    }
+}
+
+@keyframes levelGrow {
+    from { width: 0; }
+    to   { width: var(--level, 0%); }
+}

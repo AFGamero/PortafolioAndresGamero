@@ -1,0 +1,143 @@
+// =============================================================================
+// LAYOUT — _nav.scss
+// Barra de navegación superior — sticky, con menú mobile hamburguesa
+// =============================================================================
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    @include flex-between;
+    padding: $space-4 $space-6;
+    background: rgba($color-bg, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid transparent;
+    transition: border-color $transition-normal, background $transition-normal;
+
+    &.is-scrolled {
+        border-bottom-color: $color-border;
+        background: rgba($color-bg, 0.95);
+    }
+
+    @include desktop {
+        padding: $space-4 $space-12;
+    }
+
+    // ---- Logo ----
+    &__logo {
+        font-family: $font-display;
+        font-weight: 800;
+        font-size: 1.2rem;
+        color: $color-text;
+        letter-spacing: -0.02em;
+        z-index: 101;
+
+        &-bracket {
+            color: $color-accent;
+        }
+    }
+
+    // ---- Toggle hamburguesa (mobile) ----
+    &__toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 32px;
+        padding: $space-2;
+        z-index: 101;
+
+        @include tablet {
+            display: none;
+        }
+
+        span {
+            display: block;
+            height: 1.5px;
+            background: $color-text;
+            border-radius: 99px;
+            transition: transform $transition-normal, opacity $transition-normal;
+            transform-origin: center;
+        }
+
+        &.is-open {
+            span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+            span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+            span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+        }
+    }
+
+// ✅ reemplazar por esto ──
+&__links {
+    display: flex;
+    flex-direction: column;
+    gap: $space-6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;          // ← faltaba esto
+    height: 16em;         // ← faltaba esto
+    background: rgba($color-bg, 0.98);
+    @include flex-center;
+    z-index: 99;          // ← debajo del nav (z-index: 100) pero sobre todo
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $transition-normal, visibility $transition-normal;
+    visibility: hidden;   // ← mejor que pointer-events solo
+
+    &.is-open {
+        opacity: 1;
+        pointer-events: all;
+        visibility: visible;
+    }
+
+    @include tablet {
+        position: static;
+        flex-direction: row;
+        gap: $space-8;
+        background: transparent;
+        opacity: 1;
+        pointer-events: all;
+        visibility: visible;
+        width: auto;
+        height: auto;
+        z-index: auto;
+    }
+}
+
+    &__link {
+        font-family: $font-body;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: $color-text-muted;
+        transition: color $transition-fast;
+
+        @include tablet {
+            font-size: 0.9rem;
+        }
+
+        &:hover {
+            color: $color-text;
+        }
+
+        &--cta {
+            color: $color-accent;
+            font-weight: 600;
+
+            @include tablet {
+                padding: $space-2 $space-4;
+                border: 1px solid rgba($color-accent, 0.4);
+                border-radius: $radius-sm;
+                font-size: 0.85rem;
+
+                &:hover {
+                    background: rgba($color-accent, 0.1);
+                    border-color: $color-accent;
+                    color: $color-accent-2;
+                }
+            }
+        }
+    }
+}

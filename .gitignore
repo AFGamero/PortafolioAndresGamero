@@ -1,0 +1,22 @@
+node_modules/
+.DS_Store
+__MACOSX/
+*.zip
+
+# Environment variables (sensitive)
+.env
+.env.local
+.env.*.local
+
+# Editor / IDE folders and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.sln
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/

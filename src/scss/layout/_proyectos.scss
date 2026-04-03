@@ -1,0 +1,175 @@
+// =============================================================================
+// LAYOUT — _proyectos.scss
+// Sección de proyectos con grid responsive y cards
+// =============================================================================
+
+.proyectos {
+    padding: $space-24 0;
+
+    // ---- Grid de proyectos ----
+    // Móvil: 1 col | Tablet: 2 col | Desktop: 3 col (usando mixin grid)
+    &__grid {
+        @include grid(1, $space-5);
+
+        @include tablet {
+            @include grid(2, $space-5);
+        }
+
+        @include desktop {
+            @include grid(3, $space-6);
+        }
+    }
+}
+
+// ---- Proyecto Card ----
+.proyecto-card {
+    background: $color-bg-card;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    padding: $space-6;
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+    transition:
+        border-color $transition-normal,
+        transform    $transition-slow,
+        box-shadow   $transition-normal;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 80% 60% at 0% 0%, rgba($color-accent, 0.05), transparent 70%);
+        opacity: 0;
+        transition: opacity $transition-normal;
+        pointer-events: none;
+    }
+
+    &:hover {
+        border-color: $color-border-hover;
+        transform: translateY(-5px);
+        box-shadow: $shadow-hover;
+
+        &::after {
+            opacity: 1;
+        }
+
+        .proyecto-card__links {
+            opacity: 1;
+        }
+    }
+
+    // ---- Variante destacada (card grande) ----
+    &--featured {
+        @include tablet {
+            grid-column: span 2;
+        }
+
+        @include desktop {
+            grid-column: span 1;
+        }
+
+        border-color: rgba($color-accent, 0.2);
+        background: $color-bg-card-alt;
+
+        &::before {
+            content: '⭐ Destacado';
+            position: absolute;
+            top: $space-4;
+            right: $space-4;
+            font-family: $font-mono;
+            font-size: 0.65rem;
+            letter-spacing: 0.06em;
+            color: $color-accent;
+            text-transform: uppercase;
+        }
+    }
+
+    // ---- Header: número + links ----
+    &__header {
+        @include flex-between;
+    }
+
+    &__number {
+        font-family: $font-mono;
+        font-size: 0.72rem;
+        color: $color-text-dim;
+        letter-spacing: 0.06em;
+    }
+
+    &__links {
+        display: flex;
+        gap: $space-3;
+        opacity: 0.4;
+        transition: opacity $transition-normal;
+    }
+
+    &__link {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $color-text-muted;
+        border: 1px solid $color-border;
+        border-radius: $radius-sm;
+        transition: color $transition-fast, border-color $transition-fast, background $transition-fast;
+
+        svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        &:hover {
+            color: $color-accent;
+            border-color: rgba($color-accent, 0.5);
+            background: rgba($color-accent, 0.08);
+        }
+    }
+
+    // ---- Título ----
+    &__title {
+        font-family: $font-display;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: $color-text;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+    }
+
+    // ---- Descripción ----
+    &__desc {
+        font-size: 0.85rem;
+        color: $color-text-muted;
+        line-height: 1.7;
+        flex: 1;
+    }
+
+    // ---- Tags de tecnologías ----
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $space-2;
+        margin-top: auto;
+    }
+}
+
+// ---- Tag de tecnología ----
+.tag {
+    font-family: $font-mono;
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    color: $color-accent-2;
+    background: rgba($color-accent, 0.08);
+    border: 1px solid rgba($color-accent, 0.18);
+    border-radius: $radius-sm;
+    padding: $space-1 $space-3;
+    transition: background $transition-fast, border-color $transition-fast;
+
+    &:hover {
+        background: rgba($color-accent, 0.15);
+        border-color: rgba($color-accent, 0.35);
+    }
+}

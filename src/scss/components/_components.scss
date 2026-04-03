@@ -1,0 +1,108 @@
+// =============================================================================
+// COMPONENTES — _components.scss
+// Botones, container, section-tag, section-heading y utilidades globales
+// =============================================================================
+
+// ---- Container ----
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $space-6;
+
+    @include tablet {
+        padding: 0 $space-8;
+    }
+
+    @include desktop {
+        padding: 0 $space-12;
+    }
+}
+
+// ---- Section Header ----
+.section-header {
+    margin-bottom: $space-12;
+}
+
+.section-tag {
+    font-family: $font-mono;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-accent;
+    margin-bottom: $space-3;
+    display: block;
+}
+
+.section-heading {
+    font-family: $font-display;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: $color-text;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+}
+
+// ---- Botones ----
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    font-family: $font-body;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: $radius-sm;
+    padding: $space-3 $space-6;
+    transition:
+        background     $transition-normal,
+        border-color   $transition-normal,
+        color          $transition-fast,
+        transform      $transition-normal,
+        box-shadow     $transition-normal;
+    cursor: pointer;
+
+    &:active {
+        transform: scale(0.97);
+    }
+
+    // ---- Primario ----
+    &--primary {
+        background: $color-accent;
+        color: #fff;
+        border: 1px solid $color-accent;
+
+        &:hover {
+            background: $color-accent-2;
+            border-color: $color-accent-2;
+            box-shadow: 0 0 24px rgba($color-accent, 0.35);
+            transform: translateY(-2px);
+        }
+    }
+
+    // ---- Ghost ----
+    &--ghost {
+        background: transparent;
+        color: $color-text-muted;
+        border: 1px solid $color-border;
+
+        &:hover {
+            border-color: $color-border-hover;
+            color: $color-text;
+            background: rgba(255,255,255,0.04);
+        }
+    }
+}
+
+// ---- Animación de entrada global ----
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity   0.65s ease,
+        transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

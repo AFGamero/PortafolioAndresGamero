@@ -1,0 +1,25 @@
+// =============================================================================
+// MAIN — main.scss
+// Punto de entrada: importa todas las partes del sistema de estilos
+//
+// Estructura:
+//   base/        → Variables, mixins, reset global
+//   layout/      → Secciones completas del portafolio
+//   components/  → Elementos reutilizables (btns, container, etc.)
+// =============================================================================
+
+// ── BASE ─────────────────────────────────────────────────────────────────────
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/reset';
+
+// ── COMPONENTES ──────────────────────────────────────────────────────────────
+@import 'components/components';
+
+// ── LAYOUT (secciones) ───────────────────────────────────────────────────────
+@import 'layout/nav';
+@import 'layout/hero';
+@import 'layout/sobre-mi';
+@import 'layout/tecnologias';
+@import 'layout/proyectos';
+@import 'layout/contacto';

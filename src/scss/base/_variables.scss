@@ -1,0 +1,63 @@
+// =============================================================================
+// BASE — _variables.scss
+// Variables globales: colores, tipografía, breakpoints
+// =============================================================================
+
+// ---- Breakpoints ----
+$telefono:  480px;
+$tablet:    768px;
+$desktop:   1024px;
+$wide:      1280px;
+
+// ---- Colores principales ----
+$color-bg:          #0a0a0f;
+$color-bg-2:        #0f0f18;
+$color-bg-card:     #111120;
+$color-bg-card-alt: #13131f;
+$color-surface:     #1a1a2e;
+
+$color-accent:      #7c6af0;       // Violeta profundo
+$color-accent-2:    #a78bfa;       // Violeta claro
+$color-accent-glow: rgba(124, 106, 240, 0.18);
+$color-green:       #34d399;       // Estado activo
+$color-amber:       #fbbf24;
+
+$color-text:        #e8e8f0;
+$color-text-muted:  #8585a4;
+$color-text-dim:    #4a4a6a;
+$color-border:      rgba(255, 255, 255, 0.07);
+$color-border-hover:rgba(124, 106, 240, 0.4);
+
+// ---- Tipografía ----
+$font-display: 'Syne', sans-serif;
+$font-mono:    'DM Mono', monospace;
+$font-body:    'Outfit', sans-serif;
+
+// ---- Espaciado base ----
+$space-1:  0.25rem;
+$space-2:  0.5rem;
+$space-3:  0.75rem;
+$space-4:  1rem;
+$space-5:  1.25rem;
+$space-6:  1.5rem;
+$space-8:  2rem;
+$space-12: 3rem;
+$space-16: 4rem;
+$space-20: 5rem;
+$space-24: 6rem;
+
+// ---- Radio de borde ----
+$radius-sm: 6px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$radius-xl: 30px;
+
+// ---- Sombras ----
+$shadow-card:  0 1px 3px rgba(0,0,0,0.5), 0 0 0 1px #{$color-border};
+$shadow-hover: 0 8px 32px rgba(0,0,0,0.6), 0 0 0 1px #{$color-border-hover};
+$shadow-glow:  0 0 40px #{$color-accent-glow};
+
+// ---- Transiciones ----
+$transition-fast:   0.15s ease;
+$transition-normal: 0.25s ease;
+$transition-slow:   0.4s cubic-bezier(0.4, 0, 0.2, 1);
