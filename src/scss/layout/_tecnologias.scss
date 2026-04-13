@@ -38,7 +38,7 @@
         border-bottom: 1px solid $color-border;
     }
 
-    // ---- Grid Backend (3 cards) ----
+    // ---- Grid Backend (2 cards) ----
     &__grid {
         @include grid(1, $space-4);
 
@@ -48,21 +48,21 @@
 
         &--backend {
             @include desktop {
-                @include grid(3, $space-5);
+                @include grid(2, $space-5);
             }
         }
 
-        // ---- Grid Frontend (3 cards) ----
+        // ---- Grid Frontend (2 cards) ----
         &--frontend {
             @include desktop {
-                @include grid(3, $space-5);
+                @include grid(2, $space-5);
             }
         }
 
-        // ---- Grid Bases de datos (3 cards) ----
+        // ---- Grid Bases de datos (2 cards) ----
         &--db {
             @include desktop {
-                @include grid(3, $space-5);
+                @include grid(2, $space-5);
             }
         }
     }
